@@ -1,0 +1,6 @@
+framework module CloudVisionSwift {
+  umbrella header "CloudVisionSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
