@@ -7,11 +7,18 @@
 
 import Foundation
 
-public typealias ImageRequestResult = (CVAnnotateImageResponse?, Error?) -> Void
+public typealias ImageRequestResult = (ImagesAnnotateResponse?, Error?) -> Void
+
+public struct ImagesAnnotateRequest: Encodable {
+    let requests: [CVAnnotateImageRequest]
+}
+
+public struct ImagesAnnotateResponse: Decodable {
+    let responses: [CVAnnotateImageResponse]
+}
 
 class CloudVisionApi {
-    private static let version = "v1"
-    private static let baseURL = "https://vision.googleapis.com/\(version)/images:annotate"
+    private static let endpointURL = "https://vision.googleapis.com/v1/images:annotate"
 
     private let apiKey: String
 
@@ -20,12 +27,16 @@ class CloudVisionApi {
     }
 
     func annotateImageRequest(_ request: CVAnnotateImageRequest, result: @escaping ImageRequestResult) {
-        guard let requestData = try? JSONEncoder().encode(request) else {
+        annotateImageRequests([request], result: result)
+    }
+
+    func annotateImageRequests(_ requests: [CVAnnotateImageRequest], result: @escaping ImageRequestResult) {
+        guard let requestData = try? JSONEncoder().encode(ImagesAnnotateRequest(requests: requests)) else {
             result(nil, CloudVisionError.failedToEncodeRequest)
             return
         }
 
-        var urlComponents = URLComponents(string: CloudVisionApi.baseURL)!
+        var urlComponents = URLComponents(string: CloudVisionApi.endpointURL)!
         urlComponents.queryItems = [URLQueryItem(name: "key", value: apiKey)]
 
         guard let url = urlComponents.url else {
@@ -34,26 +45,32 @@ class CloudVisionApi {
         }
 
         var urlRequest = URLRequest(url: url)
+        urlRequest.timeoutInterval = 10
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpBody = requestData
 
-        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            guard let data = data else {
-                if let error = error {
-                    result(nil, error)
-                } else {
-                    result(nil, CloudVisionError.unknown)
-                }
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if let error = error { result(nil, error) }
+            guard let data = data, let response = response as? HTTPURLResponse else {
+                result(nil, CloudVisionError.unknown)
                 return
             }
 
-            guard let response = try? JSONDecoder().decode(CVAnnotateImageResponse.self, from: data) else {
+            guard case 200...299 = response.statusCode else {
+                result(nil, CloudVisionError.httpStatusCode(response.statusCode))
+                return
+            }
+
+            print(String(data: data, encoding: .utf8)!)
+
+            guard let annotateImageResponse = try? JSONDecoder().decode(ImagesAnnotateResponse.self, from: data) else {
                 result(nil, CloudVisionError.failedToDecodeRequest)
                 return
             }
 
-            result(response, nil)
+            result(annotateImageResponse, nil)
         }
+        task.resume()
     }
 }

@@ -16,4 +16,5 @@ enum CloudVisionError: Error {
     case requestSizeExceeded
     case imageDataSizeExceeded
     case imagesPerRequestExceeded
+    case httpStatusCode(Int)
 }

@@ -5,6 +5,7 @@ import Nimble
 import CloudVisionSwift
 
 class TableOfContentsSpec: QuickSpec {
+
     override func spec() {
         describe("these will fail") {
 

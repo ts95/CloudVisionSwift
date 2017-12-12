@@ -29,70 +29,70 @@ open class ImageAnnotatorClient {
     public func cropHints(image: CVImage, imageContext: CVImageContext? = nil,
                           maxResults: UInt? = nil, result: @escaping (CVCropHintsAnnotation?, Error?) -> Void) {
         singleAnnotateImage(.cropHints, image: image, imageContext: imageContext, maxResults: maxResults, result: { response, error in
-            result(response?.cropHintsAnnotation, error)
+            result(response?.responses.first?.cropHintsAnnotation, error)
         })
     }
 
     public func documentTextDetection(image: CVImage, imageContext: CVImageContext? = nil,
                                       maxResults: UInt? = nil, result: @escaping (CVTextAnnotation?, Error?) -> Void) {
         singleAnnotateImage(.documentText, image: image, imageContext: imageContext, maxResults: maxResults, result: { response, error in
-            result(response?.fullTextAnnotation, error)
+            result(response?.responses.first?.fullTextAnnotation, error)
         })
     }
 
     public func faceDetection(image: CVImage, imageContext: CVImageContext? = nil,
                               maxResults: UInt? = nil, result: @escaping ([CVFaceAnnotation]?, Error?) -> Void) {
         singleAnnotateImage(.face, image: image, imageContext: imageContext, maxResults: maxResults, result: { response, error in
-            result(response?.faceAnnotations, error)
+            result(response?.responses.first?.faceAnnotations, error)
         })
     }
 
     public func imageProperties(image: CVImage, imageContext: CVImageContext? = nil,
                                 maxResults: UInt? = nil, result: @escaping (CVImageProperties?, Error?) -> Void) {
         singleAnnotateImage(.imageProperties, image: image, imageContext: imageContext, maxResults: maxResults, result: { response, error in
-            result(response?.imagePropertiesAnnotation, error)
+            result(response?.responses.first?.imagePropertiesAnnotation, error)
         })
     }
 
     public func labelDetection(image: CVImage, imageContext: CVImageContext? = nil,
                                maxResults: UInt? = nil, result: @escaping ([CVEntityAnnotation]?, Error?) -> Void) {
         singleAnnotateImage(.label, image: image, imageContext: imageContext, maxResults: maxResults, result: { response, error in
-            result(response?.labelAnnotations, error)
+            result(response?.responses.first?.labelAnnotations, error)
         })
     }
 
     public func landmarkDetection(image: CVImage, imageContext: CVImageContext? = nil,
                                   maxResults: UInt? = nil, result: @escaping ([CVEntityAnnotation]?, Error?) -> Void) {
         singleAnnotateImage(.landmark, image: image, imageContext: imageContext, maxResults: maxResults, result: { response, error in
-            result(response?.landmarkAnnotations, error)
+            result(response?.responses.first?.landmarkAnnotations, error)
         })
     }
 
     public func logoDetection(image: CVImage, imageContext: CVImageContext? = nil,
                               maxResults: UInt? = nil, result: @escaping ([CVEntityAnnotation]?, Error?) -> Void) {
         singleAnnotateImage(.logo, image: image, imageContext: imageContext, maxResults: maxResults, result: { response, error in
-            result(response?.logoAnnotations, error)
+            result(response?.responses.first?.logoAnnotations, error)
         })
     }
 
     public func safeSearchDetection(image: CVImage, imageContext: CVImageContext? = nil,
                                     maxResults: UInt? = nil, result: @escaping (CVSafeSearchAnnotation?, Error?) -> Void) {
         singleAnnotateImage(.safeSearch, image: image, imageContext: imageContext, maxResults: maxResults, result: { response, error in
-            result(response?.safeSearchAnnotation, error)
+            result(response?.responses.first?.safeSearchAnnotation, error)
         })
     }
 
     public func textDetection(image: CVImage, imageContext: CVImageContext? = nil,
                                     maxResults: UInt? = nil, result: @escaping ([CVEntityAnnotation]?, Error?) -> Void) {
         singleAnnotateImage(.text, image: image, imageContext: imageContext, maxResults: maxResults, result: { response, error in
-            result(response?.textAnnotations, error)
+            result(response?.responses.first?.textAnnotations, error)
         })
     }
 
     public func webDetection(image: CVImage, imageContext: CVImageContext? = nil,
                                     maxResults: UInt? = nil, result: @escaping (CVWebDetection?, Error?) -> Void) {
         singleAnnotateImage(.webDetection, image: image, imageContext: imageContext, maxResults: maxResults, result: { response, error in
-            result(response?.webDetection, error)
+            result(response?.responses.first?.webDetection, error)
         })
     }
 }

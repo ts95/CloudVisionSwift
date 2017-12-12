@@ -18,5 +18,5 @@ public struct CVAnnotateImageResponse: Decodable {
     public let imagePropertiesAnnotation: CVImageProperties?
     public let cropHintsAnnotation: CVCropHintsAnnotation?
     public let webDetection: CVWebDetection?
-    public let error: CVStatus
+    public let error: CVStatus?
 }

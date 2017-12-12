@@ -458,8 +458,8 @@
 		2958A2921FDFC9FE005642CB /* API */ = {
 			isa = PBXGroup;
 			children = (
-				2958A2931FDFC9FE005642CB /* Types */,
 				2958A2BF1FDFC9FE005642CB /* CloudVisionApi.swift */,
+				2958A2931FDFC9FE005642CB /* Types */,
 			);
 			name = API;
 			path = CloudVisionSwift/Classes/API;
@@ -686,8 +686,8 @@
 		B76D43438D16B812045C3FF6B6CBB1FA /* CloudVisionSwift */ = {
 			isa = PBXGroup;
 			children = (
-				2958A2C01FDFC9FE005642CB /* CloudVisionError.swift */,
 				2958A2C11FDFC9FE005642CB /* ImageAnnotatorClient.swift */,
+				2958A2C01FDFC9FE005642CB /* CloudVisionError.swift */,
 				2958A2921FDFC9FE005642CB /* API */,
 				F1BC27907B0C295882C056B898990FC3 /* Support Files */,
 			);
@@ -931,7 +931,9 @@
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
 					0128FEC282524462CA4F3036F06115CA = {
+						DevelopmentTeam = FE6WMDZ3AJ;
 						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1285,10 +1287,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FE6WMDZ3AJ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1299,6 +1303,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/CloudVisionSwift/CloudVisionSwift.modulemap";
 				PRODUCT_NAME = CloudVisionSwift;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -1534,10 +1539,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FE6WMDZ3AJ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1548,6 +1555,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/CloudVisionSwift/CloudVisionSwift.modulemap";
 				PRODUCT_NAME = CloudVisionSwift;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";

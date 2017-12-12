@@ -215,10 +215,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = FE6WMDZ3AJ;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = FE6WMDZ3AJ;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -522,6 +524,7 @@
 			baseConfigurationReference = 101CC0908A49BB3A0D2B3F6A /* Pods-CloudVisionSwift_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FE6WMDZ3AJ;
 				INFOPLIST_FILE = CloudVisionSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -537,6 +540,7 @@
 			baseConfigurationReference = E0AFD94AD19186EF68C63FE5 /* Pods-CloudVisionSwift_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FE6WMDZ3AJ;
 				INFOPLIST_FILE = CloudVisionSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -551,6 +555,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 653CBE59B4F431C9A2AA5FA3 /* Pods-CloudVisionSwift_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = FE6WMDZ3AJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -572,6 +577,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C888B25DB5DD1200FB5545F5 /* Pods-CloudVisionSwift_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = FE6WMDZ3AJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

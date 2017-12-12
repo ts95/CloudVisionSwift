@@ -9,5 +9,5 @@ import Foundation
 
 public struct CVWebImage: Decodable {
     public let url: String
-    public let score: Double
+    public let score: Double?
 }

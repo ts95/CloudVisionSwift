@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CloudVisionSwift'
-  s.version          = '0.1.0'
+  s.version          = '0.1.0-alpha'
   s.summary          = 'Swift client library for Google Cloud Vision'
 
 # This description is used to generate tags and improve search results.

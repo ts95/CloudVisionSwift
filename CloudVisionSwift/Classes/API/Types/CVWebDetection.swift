@@ -8,9 +8,9 @@
 import Foundation
 
 public struct CVWebDetection: Decodable {
-    public let webEntities: [CVWebEntity]
-    public let fullMatchingImages: [CVWebImage]
-    public let partialMatchingImages: [CVWebImage]
-    public let pagesWithMatchingImages: [CVWebPage]
-    public let visuallySimilarImages: [CVWebImage]
+    public let webEntities: [CVWebEntity]?
+    public let fullMatchingImages: [CVWebImage]?
+    public let partialMatchingImages: [CVWebImage]?
+    public let pagesWithMatchingImages: [CVWebPage]?
+    public let visuallySimilarImages: [CVWebImage]?
 }
